@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:myapp/pages/greet.dart';
+import 'package:myapp/pages/home_pizza.dart';
 import 'package:myapp/pages/product.dart';
 
 class HomePage extends StatelessWidget {
@@ -44,6 +45,16 @@ class HomePage extends StatelessWidget {
               );
             },
             child: const Text('Go to Product Page'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const HomePizzaPage(),
+                ),
+              );
+            },
+            child: const Text('Go to Pizza Page'),
           ),
         ],
       ),
