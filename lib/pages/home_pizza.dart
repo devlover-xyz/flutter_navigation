@@ -26,7 +26,7 @@ class _HomePizzaPageState extends State<HomePizzaPage> {
               onPressed: () async {
                 final selectedPizza = await Navigator.of(context).push(
                   MaterialPageRoute(
-                      builder: (context) => PizzaSelectionScreen()),
+                      builder: (context) => const PizzaSelectionScreen()),
                 );
                 setState(() {
                   _selectedPizza = selectedPizza;

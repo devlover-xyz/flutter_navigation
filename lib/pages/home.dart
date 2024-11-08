@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/about_page.dart';
+import 'package:myapp/pages/contact_page.dart';
 
 import 'package:myapp/pages/greet.dart';
 import 'package:myapp/pages/home_pizza.dart';
 import 'package:myapp/pages/product.dart';
+import 'package:myapp/pages/tab_page.dart';
 
 class HomePage extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
@@ -48,7 +51,7 @@ class HomePage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.of(context).push(
+              Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (context) => const HomePizzaPage(),
                 ),
@@ -57,6 +60,48 @@ class HomePage extends StatelessWidget {
             child: const Text('Go to Pizza Page'),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('My APP'),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Contact'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ContactPage()));
+              },
+            ),
+            ListTile(
+              title: const Text('About'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const AboutPage()));
+              },
+            ),
+            ListTile(
+              title: const Text('Tab Bar'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const TabPage()));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
